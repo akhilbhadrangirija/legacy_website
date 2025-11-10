@@ -7,6 +7,7 @@ import CelebratingMomentsSection from "../components/CelebratingMomentsSection";
 import ComprehensiveElderlyCareSection from "../components/ComprehensiveElderlyCareSection";
 import PricingSection from "../components/PricingSection";
 import AdmissionProcessSection from "../components/AdmissionProcessSection";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ComprehensiveElderlyCareSection />
       <PricingSection />
       <AdmissionProcessSection />
+      <Footer />
     </main>
   )
 }
