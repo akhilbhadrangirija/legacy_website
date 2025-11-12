@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://legacyretirementliving.com'),
+  // metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://legacyretirementliving.com'),
   title: {
     default: 'Legacy Premium Retirement Living — Comfort, Care, and Community',
     template: '%s | Legacy Premium Retirement Living',
