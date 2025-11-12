@@ -27,7 +27,7 @@ export default function HeroSection() {
             In another scenario, when you decide for yourself to be in a community to fight loneliness and in search of a good environment, an ideal place befitting your needs is hard to come by. The concept of Legacy Premium Retirement Homes is born out to meet these vacuums.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/visit" className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
+            <Link href="/contact-us" className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
               Book a Free Visit
             </Link>
             <Link href="/about" className="text-white border-2 border-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition">
