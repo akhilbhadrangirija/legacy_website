@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
         {/* Hero Image Placeholder */}
         <motion.div 
-          className="absolute inset-0"
+          className="absolute top-0 left-0 right-0 h-[150%]"
           style={{ y, opacity }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>

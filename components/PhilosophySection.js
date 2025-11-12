@@ -1,9 +1,20 @@
+'use client'
+
 import Link from 'next/link'
-import Image from 'next/image'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function PhilosophySection() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+
   return (
-    <section className="bg-beige py-16 px-6">
+    <section ref={ref} className="bg-beige py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8 text-center">
           Building a Legacy of Trust
@@ -44,11 +55,16 @@ export default function PhilosophySection() {
             </Link> */}
           </div>
           <div className="relative h-[700px] rounded-2xl overflow-hidden">
-            <img 
-              src='/buildings.jpg' 
-              alt="Legacy Premium Retirement Homes" 
-              className="w-full h-full object-cover"
-            />
+            <motion.div 
+              style={{ y }}
+              className="absolute inset-0"
+            >
+              <img 
+                src='/building1.jpg' 
+                alt="Legacy Premium Retirement Homes" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </div>
         </div>
       </div>
