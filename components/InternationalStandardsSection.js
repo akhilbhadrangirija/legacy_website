@@ -38,9 +38,9 @@ export default function InternationalStandardsSection() {
                 <span>The entire property will be maintained to extreme hygiene standards and the disinfected laundry service will be there for your well being</span>
               </li>
             </ul>
-            <Link href="/standards" className="inline-block mt-6 text-light-pink font-medium hover:underline">
+            {/* <Link href="/standards" className="inline-block mt-6 text-light-pink font-medium hover:underline">
               Learn More →
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

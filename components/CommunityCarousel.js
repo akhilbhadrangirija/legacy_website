@@ -55,7 +55,7 @@ export default function CommunityCarousel() {
   }, []);
 
   return (
-    <section id="community" className="relative w-full h-[90vh] overflow-hidden">
+    <section id="community" className="relative w-full h-[60vh] overflow-hidden">
       <AnimatePresence>
         <motion.div
           key={slides[index].image}

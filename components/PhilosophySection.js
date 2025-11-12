@@ -39,9 +39,9 @@ export default function PhilosophySection() {
                 <span>You will have the apartment registered in your name for 10 years and on completion of the lease you have option to renewal</span>
               </li>
             </ul>
-            <Link href="/philosophy" className="inline-block mt-6 text-light-pink font-medium hover:underline">
+            {/* <Link href="/philosophy" className="inline-block mt-6 text-light-pink font-medium hover:underline">
               Learn More →
-            </Link>
+            </Link> */}
           </div>
           <div className="relative h-[700px] rounded-2xl overflow-hidden">
             <img 

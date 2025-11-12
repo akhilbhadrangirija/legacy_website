@@ -26,9 +26,9 @@ export default function FreedomSection() {
                 <span>We understand that the best ingredient that sustains your health and happiness is what you eat. You won't be forced to devour a prescribed and regimented bland food. You have the freedom to choose from an assorted multi cuisine menu. Your choice will be vast and à la carte.</span>
               </li>
             </ul>
-            <Link href="/freedom" className="inline-block text-light-pink font-medium hover:underline">
+            {/* <Link href="/freedom" className="inline-block text-light-pink font-medium hover:underline">
               Learn More →
-            </Link>
+            </Link> */}
           </div>
           
         </div>

@@ -19,9 +19,9 @@ export default function FreedomAndCareSection() {
                 <span>Round the clock nursing assistance with a nursing bay on each floor. Weekly visit and consultation with doctors, an ambulance ready any time. We have a tie-up with nearby Kolencherry Medical Mission Multi-speciality Hospital, which is only 10 minutes off.</span>
               </li>
             </ul>
-            <Link href="/care" className="inline-block text-light-pink font-medium hover:underline">
+            {/* <Link href="/care" className="inline-block text-light-pink font-medium hover:underline">
               Learn More →
-            </Link>
+            </Link> */}
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden">
             <img 

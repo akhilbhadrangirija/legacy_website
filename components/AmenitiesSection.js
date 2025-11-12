@@ -29,9 +29,9 @@ const amenitiesList = [
     image: '/amenities/Meeting.jpg',
   },
   {
-    title: 'Monthly Programs',
-    description: `Legacy’s monthly programs keep community life vibrant and engaging. Residents enjoy a diverse calendar of cultural events, workshops, wellness talks, and group outings. Each activity is designed to inspire, educate, and entertain, fostering strong social bonds and encouraging new interests. At Legacy, staying active is all about joy, connection, and celebrating life together.`,
-    image: '/amenities/Meeting.jpg',
+    title: 'Multi-Cuisine Dining',
+    description: `Dining at Legacy is a celebration of choice, taste, and freedom. Residents can enjoy a wide variety of delicious multi-cuisine meals prepared by expert chefs and served with warmth and care. From regional favorites to international dishes, every plate reflects freshness, quality, and creativity. Whether you prefer homely comfort food or wish to explore new flavors, the à la carte menu offers endless options. The bright, welcoming dining area suits both peaceful meals and lively gatherings. Dietary preferences and health needs are thoughtfully met—because at Legacy, every meal nourishes both body and joy.`,
+    image: '/images/dining_area.jpg',
   }
 ];
 
