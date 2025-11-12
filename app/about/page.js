@@ -8,31 +8,38 @@ export default function AboutPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-dark-brown py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Link href="/" className="text-light-pink hover:underline mb-6 inline-block">
-            ← Back to Home
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-semibold text-white mb-4">
-            About Legacy
-          </h1>
-          <p className="text-white/80 text-lg mb-8">
-            Premium Retirement Living — Where Comfort, Care, and Community Come Together
-          </p>
-          
-          <div className="relative h-[400px] rounded-2xl overflow-hidden mb-8">
+      <section className="relative w-full">
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-200 to-gray-300">
+          {/* Hero Image */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/60"></div>
             <img 
               src="/arial_view.jpg" 
               alt="Aerial view of Legacy Retirement Living" 
               className="w-full h-full object-cover"
             />
           </div>
+          
+          {/* Overlay Content */}
+          <div className="relative z-10 min-h-screen flex flex-col justify-end pb-20 px-6">
+            <div className="max-w-7xl mx-auto w-full">
+              <Link href="/" className="text-white hover:text-light-pink transition mb-6 inline-block">
+                ← Back to Home
+              </Link>
+              <h1 className="text-4xl md:text-7xl font-script font-semibold text-white mb-4 leading-tight">
+                About Legacy
+              </h1>
+              <p className="text-white/95 text-lg md:text-xl max-w-2xl leading-relaxed">
+                Premium Retirement Living — Where Comfort, Care, and Community Come Together
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
       <section className="bg-beige py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8">
             Our Story
           </h2>
@@ -55,7 +62,7 @@ export default function AboutPage() {
 
       {/* Vision & Mission Section */}
       <section className="bg-dark-brown py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
               <div className="w-16 h-16 rounded-full bg-light-pink flex items-center justify-center mb-6">
@@ -91,7 +98,7 @@ export default function AboutPage() {
 
       {/* Key Features Section */}
       <section className="bg-beige py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8">
             What Makes Legacy Special
           </h2>
@@ -152,7 +159,7 @@ export default function AboutPage() {
 
       {/* Company Information Section */}
       <section className="bg-dark-brown py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8">
             About the Project
           </h2>
@@ -206,7 +213,7 @@ export default function AboutPage() {
 
       {/* Philosophy Section */}
       <section className="bg-beige py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8">
             Our Philosophy
           </h2>
