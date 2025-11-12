@@ -95,7 +95,7 @@ export default function Footer() {
                   <span className="text-light-pink">Email :</span> info@legacy.com
                 </p>
                 <p className="text-white/80 text-sm">
-                  <span className="text-light-pink">Website :</span> www.legacy.com
+                  <span className="text-light-pink">Website :</span> www.legacyretirementliving.com
                 </p>
               </div>
             </div>
