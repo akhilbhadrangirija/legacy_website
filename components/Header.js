@@ -8,12 +8,19 @@ import {
   SheetTrigger,
   SheetClose,
 } from "./ui/sheet";
+import Image from "next/image";
 
 export default function Header() {
   return (
     <header className="bg-beige px-6 py-4 flex justify-between items-center">
       {/* <img src="/logo.png" alt="Legacy" width={900} height={620}  className="h-6 w-10" /> */}
-      <Link href="/" className="text-3xl font-script text-dark-brown">Legacy.</Link>
+      <Link href="/" className="flex flex-col">
+      <div className="flex items-center space-x-2">
+        <Image src="/logo_tree.png" alt="Legacy Logo" width={36} height={36} />
+        <span className="font-script text-2xl text-dark-brown">Legacy</span>
+      </div>
+      <p className="uppercase text-[8px] text-dark-brown font-semibold">Premium retirement living</p>
+      </Link>
       
       {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-6 items-center">

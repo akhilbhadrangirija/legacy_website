@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-dark-brown text-white py-16 px-6">
@@ -9,14 +11,7 @@ export default function Footer() {
             {/* Logo section */}
             <div className="mb-4 flex items-center space-x-2">
               {/* Example logo SVG, replace with actual logo as needed */}
-              <svg
-                className="w-8 h-8 text-light-pink"
-                viewBox="0 0 32 32"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="16" cy="16" r="16" />
-              </svg>
+              <Image src="/logo_tree.png" alt="Legacy Logo" width={32} height={32} />
               <span className="font-script text-2xl text-white">Legacy</span>
             </div>
             <div className="space-y-4">
