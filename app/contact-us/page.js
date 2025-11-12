@@ -1,36 +1,64 @@
+'use client'
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function ContactUsPage() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start']
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+
   return (
     <main className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative w-full">
-        <div className="relative w-full h-[400px] md:h-[500px] bg-gradient-to-br from-gray-200 to-gray-300">
-          {/* Hero Image */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/70"></div>
-            <img 
-              src="/family_visit.jpg" 
-              alt="Contact Legacy Retirement Living" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+      <section ref={heroRef} className="relative w-full">
+        <div className="relative w-full h-[400px] md:h-[500px] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
+          {/* Hero Image with Parallax */}
+          <motion.div 
+            className="absolute inset-0"
+            style={{ y, opacity }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/70 z-10"></div>
+            <div className="absolute inset-0 h-[150%]">
+              <img 
+                src="/family_visit.jpg" 
+                alt="Contact Legacy Retirement Living" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
           
           {/* Overlay Content */}
           <div className="relative z-10 h-full flex flex-col justify-center items-center px-6">
             <div className="max-w-7xl mx-auto w-full text-center">
-              <h1 className="text-4xl md:text-6xl font-script font-semibold text-white mb-4">
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl md:text-6xl font-script font-semibold text-white mb-4"
+              >
                 Contact us
-              </h1>
-              <div className="text-white/90 text-sm md:text-base">
+              </motion.h1>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-white/90 text-sm md:text-base"
+              >
                 <Link href="/" className="hover:text-light-pink transition">Home</Link>
                 <span className="mx-2">/</span>
                 <span>Contact Us</span>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -41,22 +69,51 @@ export default function ContactUsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {/* Left Column - Reach out Section */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="mb-6">
-                <div className="flex items-center gap-2 mb-4">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center gap-2 mb-4"
+                >
                   <span className="w-2 h-2 rounded-full bg-light-pink"></span>
                   <span className="text-dark-brown/70 text-sm font-medium uppercase tracking-wide">Reach out</span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-4 leading-tight">
+                </motion.div>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-3xl md:text-4xl font-semibold text-dark-brown mb-4 leading-tight"
+                >
                   Have questions? we're just a <span className="italic">message</span> away
-                </h2>
-                <p className="text-dark-brown/70 text-lg leading-relaxed">
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-dark-brown/70 text-lg leading-relaxed"
+                >
                   Fill out the form below and our team will get back to you shortly with the care and answers you need.
-                </p>
+                </motion.p>
               </div>
 
               {/* Opening Hours Box */}
-              <div className="bg-dark-brown rounded-2xl p-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-dark-brown rounded-2xl p-6"
+              >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-full bg-light-pink flex items-center justify-center">
                     <svg className="w-6 h-6 text-dark-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,11 +132,16 @@ export default function ContactUsPage() {
                     <span className="text-white">Closed</span>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Right Column - Contact Form */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="bg-light-cream rounded-2xl p-8 shadow-lg">
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
@@ -149,32 +211,58 @@ export default function ContactUsPage() {
                     ></textarea>
                   </div>
 
-                  <button
+                  <motion.button
                     type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className="w-full bg-light-pink text-dark-brown px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition duration-200"
                   >
                     Submit Message
-                  </button>
+                  </motion.button>
                 </form>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom Section - Contact Details */}
-          <div className="mt-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mt-16"
+          >
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-2 mb-4"
+              >
                 <span className="w-2 h-2 rounded-full bg-light-pink"></span>
                 <span className="text-dark-brown/70 text-sm font-medium uppercase tracking-wide">Contact us</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown leading-tight">
+              </motion.div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-3xl md:text-4xl font-semibold text-dark-brown leading-tight"
+              >
                 We're here to listen, <span className="italic">help</span>, and support
-              </h2>
+              </motion.h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Address */}
-              <div className="flex items-start gap-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex items-start gap-4"
+              >
                 <div className="w-14 h-14 rounded-full bg-light-pink flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-dark-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -188,10 +276,16 @@ export default function ContactUsPage() {
                     Puthencruz, Ernakulam - 682310
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Email */}
-              <div className="flex items-start gap-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex items-start gap-4"
+              >
                 <div className="w-14 h-14 rounded-full bg-light-pink flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-dark-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -203,10 +297,16 @@ export default function ContactUsPage() {
                     <p>info@legacy.com</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex items-start gap-4"
+              >
                 <div className="w-14 h-14 rounded-full bg-light-pink flex items-center justify-center flex-shrink-0">
                   <svg className="w-7 h-7 text-dark-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -219,9 +319,9 @@ export default function ContactUsPage() {
                     <p>+91 98950 88888</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
