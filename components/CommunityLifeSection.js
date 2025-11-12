@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function CommunityLifeSection() {
   const communityFeatures = [
@@ -38,36 +41,64 @@ export default function CommunityLifeSection() {
   return (
     <section className="bg-beige py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8 text-center"
+        >
           You will belong to a community where the people and place are right
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <ul className="space-y-5 text-dark-brown/70">
               {communityFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <motion.li 
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
                   <span className="text-light-pink font-bold mt-1">•</span>
                   <span>{feature}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
             {/* <Link href="/community" className="inline-block mt-6 text-light-pink font-medium hover:underline">
               Learn More →
             </Link> */}
-          </div>
-          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="relative h-[400px] rounded-2xl overflow-hidden"
+          >
             <img 
               src="/right_community.jpg" 
               alt="Community Life at Legacy" 
               className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
           {amenities.map((amenity, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               style={{
                 backgroundImage: `url(${amenity.image})`,
                 backgroundSize: 'cover',
@@ -79,7 +110,7 @@ export default function CommunityLifeSection() {
                 <h3 className="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-light-pink">{amenity.title}</h3>
                 <p className="text-white/90 text-sm">{amenity.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

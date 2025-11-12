@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const amenitiesList = [
   {
@@ -56,36 +57,71 @@ export default function AmenitiesSection() {
   return (
     <section className="bg-dark-brown py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-semibold text-white mb-8 text-center"
+        >
           All the amenities to make life on a song
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <ul className="space-y-5 text-white/80 mb-6">
-              <li className="flex items-start gap-3">
+              <motion.li 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex items-start gap-3"
+              >
                 <span className="text-light-pink font-bold mt-1">•</span>
                 <span>The amenities are thoughtfully provided to make you connected to the outside world as and when you wish. A business centre with secretarial support, high speed wi-fi connection, activity area for intellectual gatherings, monthly cultural programmes.</span>
-              </li>
-              <li className="flex items-start gap-3">
+              </motion.li>
+              <motion.li 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex items-start gap-3"
+              >
                 <span className="text-light-pink font-bold mt-1">•</span>
                 <span>Games room with lighter sportive equipment like pool table, chess, card table, table top soccer and the like to fulfill your leisure time with the inmates.</span>
-              </li>
+              </motion.li>
             </ul>
-            <div className="flex flex-col gap-2 rounded-md p-2">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col gap-2 rounded-md p-2"
+            >
               <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300">{amenities.title}</h3>
               <p className="text-white/90 text-sm">{amenities.description}</p>
-            </div>
+            </motion.div>
             {/* <Link href="/amenities" className="inline-block text-light-pink font-medium hover:underline">
               Learn More →
             </Link> */}
-          </div>
-          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="relative h-[400px] rounded-2xl overflow-hidden"
+          >
             <img 
               src={amenities.image} 
               alt="Amenities at Legacy" 
               className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -93,6 +129,7 @@ export default function AmenitiesSection() {
             const isSelected = index === currentIndex;
             return (
               <div 
+               
                 onClick={() => handleAmenitySelect(amenity)}
                 onMouseEnter={() => handleAmenitySelect(amenity)}
                 key={amenity.title} 
