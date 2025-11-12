@@ -80,19 +80,22 @@ export default function Footer() {
               <div>
                 <h4 className="text-light-pink font-medium mb-2">Registered Office</h4>
                 <p className="text-white/80 text-sm">
-                  6/342 A, Vadavucode P O,<br />
-                  Puthencruz, Ernakulam - 682 310
+                  6/342A, Vadavucode P.O.,<br />
+                  Puthencruz, Ernakulam - 682310
                 </p>
               </div>
               <div className="space-y-2">
                 <p className="text-white/80 text-sm">
-                  <span className="text-light-pink">Tel :</span> 04842828282
+                  <span className="text-light-pink">Telephone :</span> 0484 2828282
                 </p>
                 <p className="text-white/80 text-sm">
-                  <span className="text-light-pink">Mob :</span> +91 9895088888
+                  <span className="text-light-pink">Mobile :</span> +91 98950 88888
                 </p>
                 <p className="text-white/80 text-sm">
                   <span className="text-light-pink">Email :</span> info@legacy.com
+                </p>
+                <p className="text-white/80 text-sm">
+                  <span className="text-light-pink">Website :</span> www.legacy.com
                 </p>
               </div>
             </div>

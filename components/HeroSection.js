@@ -1,16 +1,19 @@
 export default function HeroSection() {
   return (
     <section className="relative w-full">
-      <div className="relative w-full h-[600px] bg-gradient-to-br from-gray-200 to-gray-300">
+      <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300">
         {/* Hero Image Placeholder */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400"></div>
         
         {/* Overlay Text */}
-        <div className="absolute bottom-20 left-6 text-white max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6 leading-tight">
+        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4 leading-tight">
           Life at a leisurely pace<br />
           Living with amazing grace
           </h2>
+          <p className="text-white/90 mb-6 text-lg leading-relaxed">
+            Many of us have faced the difficulty of leaving our dear parents alone at home or under the care of hired help. Even traditional old age homes often leave much to be desired. Legacy Premium Retirement Homes was created to fill this gap — a place designed to offer seniors comfort, dignity, and a meaningful community. Enjoy your golden years in peace and happiness in a setting built for grace and independence.
+          </p>
           <div className="flex items-center gap-4">
             <button className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
               Book a Free Visit

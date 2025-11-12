@@ -1,8 +1,9 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Carely - Trusted Elderly Care',
-  description: 'Trusted elderly care designed with heart, respect, and experience',
+  title: 'Legacy Premium Retirement Living — Comfort, Care, and Community',
+  description: 'Discover Legacy Premium Retirement Homes — a serene, self-sustained senior living community in Vadavucode, Kerala. Enjoy comfort, companionship, and care in a lush 5.5-acre retreat.',
+  keywords: ['retirement living', 'senior homes', 'premium retirement', 'legacy homes', 'senior community', 'Vadavucode', 'Kerala'],
 }
 
 export default function RootLayout({ children }) {
