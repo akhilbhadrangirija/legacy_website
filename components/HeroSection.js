@@ -1,21 +1,37 @@
+'use client'
+
 import Link from 'next/link'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function HeroSection() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start']
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3])
+
   return (
-    <section className="relative w-full">
-      <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300">
+    <section ref={ref} className="relative w-full">
+      <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
         {/* Hero Image Placeholder */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50"></div>
+        <motion.div 
+          className="absolute inset-0"
+          style={{ y, opacity }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>
           <img 
             src="/coverImage.jpg" 
             alt="Legacy Premium Retirement Living" 
             className="w-full h-full object-cover"
           />
-        </div>
+        </motion.div>
         
         {/* Overlay Text */}
-        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl z-10">
+        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl z-20">
           <h2 className="text-4xl md:text-7xl font-script font-semibold mb-4 leading-tight">
           Enjoy your golden<br />
           years in bliss
