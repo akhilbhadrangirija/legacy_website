@@ -1,17 +1,43 @@
+import Link from 'next/link'
+
 export default function CommunityLifeSection() {
   return (
     <section className="bg-beige py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-6 text-center">
-          A Community You'll Love Belonging To
+        <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-8 text-center">
+          You will belong to a community where the people and place are right
         </h2>
-        <div className="max-w-4xl mx-auto mb-12">
-          <p className="text-dark-brown/70 text-lg leading-relaxed mb-6">
-            Legacy offers a sense of belonging in a community of like-minded individuals — retired professionals and seniors who appreciate meaningful living. The property is located just a few kilometers from NH 66, in a lush green setting.
-          </p>
-          <p className="text-dark-brown/70 text-lg leading-relaxed">
-            It includes an orchard, vegetable gardens, a yoga and meditation corner, and a pond for angling. The community fosters engagement and creativity, with facilities like an Art Corner, amphitheatre, home theatre, and coffee shop. Visitors are welcome at any time, and residents can host family members for extended stays. The dining experience is flexible and enjoyable — residents can choose from a wide range of multi-cuisine options, including à la carte meals. There are no unnecessary restrictions, only comfort and choice.
-          </p>
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+          <div>
+            <ul className="space-y-5 text-dark-brown/70">
+              <li className="flex items-start gap-3">
+                <span className="text-light-pink font-bold mt-1">•</span>
+                <span>The project is tucked away in a green oasis just a few km from NH 66.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-light-pink font-bold mt-1">•</span>
+                <span>There will be an orchard, garden with sitout, meditation/yoga corner, vegetable garden and a pond for angling.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-light-pink font-bold mt-1">•</span>
+                <span>You will be living among people of your own ilk and social background comprising senior citizens with illustrious careers behind and erstwhile professionals.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-light-pink font-bold mt-1">•</span>
+                <span>The community life here is engaging and meaningful. There's an Art Corner where you can express yourself, an amphitheatre for performing arts, a home theatre to watch your favourite movies and a coffee shop.</span>
+              </li>
+            </ul>
+            <Link href="/community" className="inline-block mt-6 text-light-pink font-medium hover:underline">
+              Learn More →
+            </Link>
+          </div>
+          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+            <img 
+              src="/right_community.jpg" 
+              alt="Community Life at Legacy" 
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

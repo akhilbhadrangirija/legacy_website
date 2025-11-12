@@ -1,17 +1,24 @@
+import Link from 'next/link'
+
 export default function ComprehensiveElderlyCareSection() {
   return (
     <section className="bg-beige py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-dark-brown mb-6 text-center">
             Comprehensive elderly care for every life stage
           </h2>
-          <p className="text-dark-brown/70 mb-6 leading-relaxed max-w-3xl">
+          <p className="text-dark-brown/70 mb-6 leading-relaxed max-w-3xl mx-auto text-center">
             From independent living to specialized medical care, we offer a full spectrum of services designed to meet the evolving needs of our residents at every stage of their journey.
           </p>
-          <button className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
-            View All Services
-          </button>
+        </div>
+
+        <div className="relative h-[300px] rounded-2xl overflow-hidden mb-12">
+          <img 
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80" 
+            alt="Comprehensive Elderly Care" 
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

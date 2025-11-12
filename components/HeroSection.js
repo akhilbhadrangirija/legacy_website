@@ -1,23 +1,38 @@
+import Link from 'next/link'
+
 export default function HeroSection() {
   return (
     <section className="relative w-full">
       <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300">
         {/* Hero Image Placeholder */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400"></div>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50"></div>
+          <img 
+            src="/coverImage.jpg" 
+            alt="Legacy Premium Retirement Living" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         
         {/* Overlay Text */}
-        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4 leading-tight">
-          Life at a leisurely pace<br />
-          Living with amazing grace
+        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl z-10">
+          <h2 className="text-4xl md:text-7xl font-script font-semibold mb-4 leading-tight">
+          Enjoy your golden<br />
+          years in bliss
           </h2>
-          <p className="text-white/90 mb-6 text-lg leading-relaxed">
-            Many of us have faced the difficulty of leaving our dear parents alone at home or under the care of hired help. Even traditional old age homes often leave much to be desired. Legacy Premium Retirement Homes was created to fill this gap — a place designed to offer seniors comfort, dignity, and a meaningful community. Enjoy your golden years in peace and happiness in a setting built for grace and independence.
+          <p className="text-white/95 mb-4 leading-relaxed">
+            Many of us might've experienced the agony of leaving dear parents alone at home. Or left to the mercy of a hired home nurse. Even entrusting them to the care of an old age home leaves many things to be desired.
+          </p>
+          <p className="text-white/95 mb-6 leading-relaxed">
+            In another scenario, when you decide for yourself to be in a community to fight loneliness and in search of a good environment, an ideal place befitting your needs is hard to come by. The concept of Legacy Premium Retirement Homes is born out to meet these vacuums.
           </p>
           <div className="flex items-center gap-4">
-            <button className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
+            <Link href="/visit" className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
               Book a Free Visit
-            </button>
+            </Link>
+            <Link href="/about" className="text-white border-2 border-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition">
+              Learn More
+            </Link>
             {/* <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 <div className="w-10 h-10 rounded-full bg-gray-400 border-2 border-white"></div>
