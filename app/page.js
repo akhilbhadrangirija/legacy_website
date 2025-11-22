@@ -23,11 +23,11 @@ export default function Home() {
       <HeroSection />
       <PhilosophySection />
       <InternationalStandardsSection />
-      <FreedomAndCareSection />
+      {/* <FreedomAndCareSection />
       <FreedomSection />
       <CommunityLifeSection />
       <AmenitiesSection />
-      <CommunityCarousel />
+      <CommunityCarousel /> */}
       {/* <BackedByExperienceSection /> */}
       {/* <CareServicesSection /> */}
       {/* <ExceptionalSeniorCareSection /> */}

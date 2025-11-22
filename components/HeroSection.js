@@ -1,11 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import { useScroll, useTransform, motion } from 'framer-motion'
-import { useRef } from 'react'
+import { useScroll, useTransform, motion, AnimatePresence } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+
+const carouselImages = [
+  '/carousel/1_13 - Photo.jpg',
+  '/carousel/1_16 - Photo.jpg',
+  '/carousel/1_18 - Photo.jpg',
+  '/carousel/V_Photo - 3.jpg'
+]
 
 export default function HeroSection() {
   const ref = useRef(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start']
@@ -14,20 +22,38 @@ export default function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3])
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section ref={ref} className="relative w-full">
       <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
-        {/* Hero Image Placeholder */}
+        {/* Carousel Background */}
         <motion.div 
           className="absolute top-0 left-0 right-0 h-[150%]"
           style={{ y, opacity }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>
-          <img 
-            src="/coverImage.jpg" 
-            alt="Legacy Premium Retirement Living" 
-            className="w-full h-full object-cover"
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={carouselImages[currentIndex]}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+              className="absolute inset-0"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>
+              <img 
+                src={carouselImages[currentIndex]} 
+                alt="Legacy Premium Retirement Living" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
         
         {/* Overlay Text */}
@@ -37,10 +63,10 @@ export default function HeroSection() {
           years in bliss
           </h2>
           <p className="text-white/95 mb-4 leading-relaxed">
-            Many of us might've experienced the agony of leaving dear parents alone at home. Or left to the mercy of a hired home nurse. Even entrusting them to the care of an old age home leaves many things to be desired.
+            Leaving loved ones at home or relying on outside help can be difficult—and old age homes don’t always feel right.
           </p>
           <p className="text-white/95 mb-6 leading-relaxed">
-            In another scenario, when you decide for yourself to be in a community to fight loneliness and in search of a good environment, an ideal place befitting your needs is hard to come by. The concept of Legacy Premium Retirement Homes is born out to meet these vacuums.
+            Legacy Premium Retirement Homes was created to provide a caring, vibrant community for seniors seeking comfort and connection.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/contact-us" className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
