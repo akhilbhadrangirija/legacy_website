@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
 import PhilosophySection from "../components/PhilosophySection";
 import InternationalStandardsSection from "../components/InternationalStandardsSection";
 import FreedomAndCareSection from "../components/FreedomAndCareSection";
@@ -21,6 +22,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
+      <AboutSection />
       <PhilosophySection />
       <InternationalStandardsSection />
       {/* <FreedomAndCareSection />
