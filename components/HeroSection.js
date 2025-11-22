@@ -11,9 +11,17 @@ const carouselImages = [
   '/carousel/V_Photo - 3.jpg'
 ]
 
+const mobileCarouselImages = [
+  '/carousel/mobile/pic_1.jpg',
+  '/carousel/mobile/pic_2.jpg',
+  '/carousel/mobile/pic_3.jpg',
+  '/carousel/mobile/pic_4.jpg'
+]
+
 export default function HeroSection() {
   const ref = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start']
@@ -23,11 +31,22 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3])
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    const images = isMobile ? mobileCarouselImages : carouselImages
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % carouselImages.length)
+      setCurrentIndex((prev) => (prev + 1) % images.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [isMobile])
 
   return (
     <section ref={ref} className="relative w-full">
@@ -39,7 +58,7 @@ export default function HeroSection() {
         >
           <AnimatePresence mode="wait">
             <motion.div
-              key={carouselImages[currentIndex]}
+              key={(isMobile ? mobileCarouselImages : carouselImages)[currentIndex]}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -48,7 +67,7 @@ export default function HeroSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>
               <img 
-                src={carouselImages[currentIndex]} 
+                src={(isMobile ? mobileCarouselImages : carouselImages)[currentIndex]} 
                 alt="Legacy Premium Retirement Living" 
                 className="w-full h-full object-cover"
               />
