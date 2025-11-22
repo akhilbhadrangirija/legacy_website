@@ -75,7 +75,7 @@ export default function AboutSection() {
         </div>
 
         {/* Vision & Mission */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* <div className="grid md:grid-cols-2 gap-8">
           <motion.div 
             className="bg-dark-brown rounded-2xl p-8"
             initial={{ opacity: 0, y: 30 }}
@@ -116,7 +116,7 @@ export default function AboutSection() {
               exceptional care and comfort.
             </p>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
