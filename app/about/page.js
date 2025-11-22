@@ -2,6 +2,11 @@
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import FreedomAndCareSection from "../../components/FreedomAndCareSection";
+import FreedomSection from "../../components/FreedomSection";
+import CommunityLifeSection from "../../components/CommunityLifeSection";
+import AmenitiesSection from "../../components/AmenitiesSection";
+import CommunityCarousel from "../../components/CommunityCarousel";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -392,6 +397,12 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+
+      <FreedomAndCareSection />
+      <FreedomSection />
+      <CommunityLifeSection />
+      <AmenitiesSection />
+      <CommunityCarousel />
 
       <Footer />
     </main>
