@@ -23,8 +23,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <PhilosophySection />
-      <InternationalStandardsSection />
+      {/* <PhilosophySection />
+      <InternationalStandardsSection /> */}
       {/* <FreedomAndCareSection />
       <FreedomSection />
       <CommunityLifeSection />
