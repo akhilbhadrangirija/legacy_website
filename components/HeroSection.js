@@ -1,125 +1,76 @@
 'use client'
 
 import Link from 'next/link'
-import { useScroll, useTransform, motion, AnimatePresence } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { PrimaryButton } from './PrimaryButton'
+import { ArrowLeft, Plus } from 'lucide-react'
 
-const carouselImages = [
-  '/carousel/1_13 - Photo.jpg',
-  '/carousel/1_16 - Photo.jpg',
-  '/carousel/1_18 - Photo.jpg',
-  '/carousel/V_Photo - 3.jpg'
-]
-
-const mobileCarouselImages = [
-  '/carousel/mobile/pic_1.jpg',
-  '/carousel/mobile/pic_2.jpg',
-  '/carousel/mobile/pic_3.jpg',
-  '/carousel/mobile/pic_4.jpg'
-]
+const heroImage1 = '/carousel/1_13 - Photo.jpg'
+const heroImage2 = '/carousel/1_16 - Photo.jpg'
 
 export default function HeroSection() {
-  const ref = useRef(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start']
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3])
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  useEffect(() => {
-    const images = isMobile ? mobileCarouselImages : carouselImages
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [isMobile])
-
   return (
-    <section ref={ref} className="relative w-full">
-      <div className="relative w-full min-h-[700px] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
-        {/* Carousel Background */}
-        <motion.div 
-          className="absolute top-0 left-0 right-0 h-[150%]"
-          style={{ y, opacity }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={(isMobile ? mobileCarouselImages : carouselImages)[currentIndex]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
-              className="absolute inset-0"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-black/50 z-10"></div>
-              <img 
-                src={(isMobile ? mobileCarouselImages : carouselImages)[currentIndex]} 
-                alt="Legacy Premium Retirement Living" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
-        
-        {/* Overlay Text */}
-        <div className="absolute bottom-20 left-6 right-6 md:right-auto text-white max-w-2xl z-20">
-          <h2 className="text-4xl md:text-7xl font-script font-semibold mb-4 leading-tight">
-          Enjoy your golden<br />
-          years in bliss
-          </h2>
-          <p className="text-white/95 mb-4 leading-relaxed">
-            Leaving loved ones at home or relying on outside help can be difficult—and old age homes don’t always feel right.
-          </p>
-          <p className="text-white/95 mb-6 leading-relaxed">
-            Legacy Premium Retirement Homes was created to provide a caring, vibrant community for seniors seeking comfort and connection.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="/contact-us" className="bg-light-pink text-dark-brown px-8 py-3 rounded-lg font-medium hover:opacity-90 transition">
-              Book a Free Visit
-            </Link>
-            <Link href="/about" className="text-white border-2 border-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition">
-              Learn More
-            </Link>
-            {/* <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                <div className="w-10 h-10 rounded-full bg-gray-400 border-2 border-white"></div>
-                <div className="w-10 h-10 rounded-full bg-gray-500 border-2 border-white"></div>
-                <div className="w-10 h-10 rounded-full bg-gray-600 border-2 border-white"></div>
-              </div>
-              <span className="text-white font-medium">4.9 (48 Reviews)</span>
-            </div> */}
-          </div>
-        </div>
+    <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-surface-warm">
+      <div className="relative z-10 w-full max-w-section mx-auto px-4 py-16 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-accent/60 hidden lg:block" aria-hidden>
+              <ArrowLeft className="h-10 w-10" />
+            </div>
+            <p className="text-warm-gray text-sm font-medium uppercase tracking-wide mb-3">
+              Welcome to Legacy
+            </p>
+            <h1 className="text-4xl font-bold text-charcoal leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-[3.25rem] lg:leading-[1.15]">
+              Premium Retirement Living Designed for Comfort & Community
+            </h1>
+            <p className="mt-5 text-lg text-warm-gray leading-relaxed max-w-prose sm:text-xl">
+              A serene, senior-centric lifestyle where independence, care, and connection come together in harmony.
+            </p>
+            <div className="mt-8">
+              <PrimaryButton
+                href="/#about-snapshot"
+                className="!bg-accent !text-white hover:!bg-accent/90 !border-0 rounded-xl px-8 py-4 text-base"
+              >
+                Explore Our Community
+              </PrimaryButton>
+            </div>
+          </motion.div>
 
-        {/* Right Icons */}
-        {/* <div className="absolute top-6 right-6 flex gap-4 z-10">
-          <button className="text-dark-brown bg-white/80 rounded-full p-2 hover:bg-white transition">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </button>
-          <button className="text-dark-brown bg-white/80 rounded-full p-2 hover:bg-white transition">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </button>
-        </div> */}
+          <motion.div
+            className="relative flex flex-col items-center gap-6"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          >
+            <div className="absolute right-0 top-0 w-24 h-24 rounded-full bg-coral/30 -translate-y-4 translate-x-4 hidden lg:block" aria-hidden />
+            <div className="absolute right-8 top-12 text-coral hidden lg:block" aria-hidden>
+              <Plus className="h-8 w-8" strokeWidth={2} />
+            </div>
+            <div className="relative w-full max-w-sm space-y-4">
+              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-card-hover">
+                <img
+                  src={heroImage1}
+                  alt="Legacy Retirement Living — serene senior community"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-card-hover ml-8">
+                <img
+                  src={heroImage2}
+                  alt="Community and care at Legacy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/10 rounded-full blur-2xl hidden lg:block" aria-hidden />
+          </motion.div>
+        </div>
       </div>
     </section>
   )
 }
-

@@ -1,44 +1,26 @@
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
-import PhilosophySection from "../components/PhilosophySection";
-import InternationalStandardsSection from "../components/InternationalStandardsSection";
-import FreedomAndCareSection from "../components/FreedomAndCareSection";
-import FreedomSection from "../components/FreedomSection";
-import CommunityLifeSection from "../components/CommunityLifeSection";
-import CommunityCarousel from "../components/CommunityCarousel";
-import AmenitiesSection from "../components/AmenitiesSection";
-import Footer from "../components/Footer";
-// import CareServicesSection from "../components/CareServicesSection";
-// import BackedByExperienceSection from "../components/BackedByExperienceSection";
-// import ExceptionalSeniorCareSection from "../components/ExceptionalSeniorCareSection";
-// import CelebratingMomentsSection from "../components/CelebratingMomentsSection";
-// import ComprehensiveElderlyCareSection from "../components/ComprehensiveElderlyCareSection";
-// import PricingSection from "../components/PricingSection";
-// import AdmissionProcessSection from "../components/AdmissionProcessSection";
+import { MainLayout } from '../components/MainLayout'
+import HeroSection from '../components/HeroSection'
+import AboutSnapshot from '../components/AboutSnapshot'
+import { SectionSeparator } from '../components/SectionSeparator'
+import LivingOptions from '../components/LivingOptions'
+import CommunityHighlight from '../components/CommunityHighlight'
+import AmenitiesGrid from '../components/AmenitiesGrid'
+import TestimonialsCarousel from '../components/TestimonialsCarousel'
+import PrimaryCTA from '../components/PrimaryCTA'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      {/* <PhilosophySection />
-      <InternationalStandardsSection /> */}
-      {/* <FreedomAndCareSection />
-      <FreedomSection />
-      <CommunityLifeSection />
-      <AmenitiesSection />
-      <CommunityCarousel /> */}
-      {/* <BackedByExperienceSection /> */}
-      {/* <CareServicesSection /> */}
-      {/* <ExceptionalSeniorCareSection /> */}
-      {/* <CelebratingMomentsSection /> */}
-      {/* <ComprehensiveElderlyCareSection /> */}
-      {/* <PricingSection /> */}
-      {/* <AdmissionProcessSection /> */}
-      <Footer />
+    <main className="min-h-screen bg-surface">
+      <MainLayout>
+        <HeroSection />
+        <AboutSnapshot />
+        <SectionSeparator text="LIVING OPTIONS • SENIOR LIVING" />
+        <LivingOptions />
+        <CommunityHighlight />
+        <AmenitiesGrid />
+        <TestimonialsCarousel />
+        <PrimaryCTA />
+      </MainLayout>
     </main>
   )
 }
-

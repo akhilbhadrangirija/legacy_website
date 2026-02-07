@@ -1,69 +1,104 @@
-"use client"
+'use client'
 
-import Link from "next/link";
-import { Menu } from "lucide-react";
+import Link from 'next/link'
+import Image from 'next/image'
+import { Menu } from 'lucide-react'
+import { useState, useEffect } from 'react'
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
-} from "./ui/sheet";
-import Image from "next/image";
+} from './ui/sheet'
+import { PrimaryButton } from './PrimaryButton'
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/#living-options', label: 'Living Options' },
+  { href: '/#amenities', label: 'Amenities' },
+  { href: '/contact-us', label: 'Contact' },
+]
 
 export default function Header() {
-  return (
-    <header className="bg-beige px-6 py-4 flex justify-between items-center">
-      {/* <img src="/logo.png" alt="Legacy" width={900} height={620}  className="h-6 w-10" /> */}
-      <Link href="/" className="flex flex-col">
-      <div className="flex items-center space-x-2">
-        <Image src="/logo_tree.png" alt="Legacy Logo" width={36} height={36} />
-        <span className="font-script text-2xl text-dark-brown">Legacy</span>
-      </div>
-      <p className="uppercase text-[8px] text-dark-brown font-semibold">Premium retirement living</p>
-      </Link>
-      
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex gap-6 items-center">
-        <Link href="/about" className="text-dark-brown hover:text-light-pink transition-colors">
-          About
-        </Link>
-        <Link href="/contact-us" className="text-dark-brown hover:text-light-pink transition-colors">
-          Contact Us
-        </Link>
-      </nav>
+  const [scrolled, setScrolled] = useState(false)
 
-      {/* Mobile Menu */}
-      <Sheet>
-        <SheetTrigger asChild className="md:hidden">
-          <button
-            className="text-dark-brown hover:text-light-pink transition-colors"
-            aria-label="Open menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
-        </SheetTrigger>
-        <SheetContent side="right" className="bg-beige">
-          <nav className="flex flex-col gap-6 mt-8">
-            <SheetClose asChild>
-              <Link 
-                href="/about" 
-                className="text-dark-brown hover:text-light-pink transition-colors text-lg font-medium"
-              >
-                About
-              </Link>
-            </SheetClose>
-            <SheetClose asChild>
-              <Link 
-                href="/contact-us" 
-                className="text-dark-brown hover:text-light-pink transition-colors text-lg font-medium"
-              >
-                Contact Us
-              </Link>
-            </SheetClose>
-          </nav>
-        </SheetContent>
-      </Sheet>
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? 'bg-navy shadow-lg' : 'bg-navy'
+      }`}
+    >
+      <div className="mx-auto flex max-w-section items-center justify-between gap-4 px-4 py-4 sm:px-6">
+        <Link
+          href="/"
+          className="flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-lg"
+        >
+          <div className="flex items-center gap-2">
+            <Image src="/logo_tree.png" alt="Legacy" width={36} height={36} className="brightness-0 invert" />
+            <span className="font-script text-2xl text-white lowercase">Legacy</span>
+          </div>
+          <span className="text-[10px] font-medium uppercase tracking-wide text-white/70">
+            Premium retirement living
+          </span>
+        </Link>
+
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-white/95 text-[1.0625rem] font-medium hover:text-white transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
+          <PrimaryButton href="/contact-us" className="!bg-accent !text-white hover:!bg-accent/90 !border-0">
+            Schedule a Visit
+          </PrimaryButton>
+        </nav>
+
+        <div className="flex items-center gap-2 lg:hidden">
+          <PrimaryButton href="/contact-us" className="!bg-accent !text-white !py-2.5 !px-4 !text-sm !border-0">
+            Schedule a Visit
+          </PrimaryButton>
+          <Sheet>
+            <SheetTrigger
+              aria-label="Open menu"
+              className="rounded-lg p-2 text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <Menu className="h-6 w-6" />
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-navy border-white/10">
+              <nav className="flex flex-col gap-2 pt-8">
+                {navLinks.map(({ href, label }) => (
+                  <SheetClose asChild key={href}>
+                    <Link
+                      href={href}
+                      className="block rounded-lg px-4 py-3 text-lg font-medium text-white hover:bg-white/10"
+                    >
+                      {label}
+                    </Link>
+                  </SheetClose>
+                ))}
+                <div className="mt-4 border-t border-white/15 pt-4">
+                  <SheetClose asChild>
+                    <PrimaryButton href="/contact-us" className="w-full justify-center !bg-accent !text-white !border-0">
+                      Schedule a Visit
+                    </PrimaryButton>
+                  </SheetClose>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </header>
   )
 }
-

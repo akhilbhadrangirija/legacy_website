@@ -8,10 +8,27 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: #3D2817;
-  background-color: #F5F1EB;
-  line-height: 1.6;
+  color: #1E3A5F;
+  background-color: #FFFFFF;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Senior-friendly: generous line-height, readable paragraph width */
+.prose-width {
+  max-width: 65ch;
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #22C55E;
+  outline-offset: 2px;
 }
 
