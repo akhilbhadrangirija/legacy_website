@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 
-export default function PageHero() {
+export default function GalleryHero() {
   return (
     <section className="relative w-full min-h-[42vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/images/gallery/gallery-16.png"
-          alt="Legacy community — greenery and seniors"
+          src="/images/arial_view.jpg"
+          alt="Legacy community gallery"
           className="w-full h-full object-cover"
         />
         <div
@@ -24,10 +24,10 @@ export default function PageHero() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl font-bold text-white leading-tight sm:text-5xl">
-            A Retirement Community Built on Care, Comfort, and Trust
+            Photo Gallery
           </h1>
           <p className="mt-5 text-lg text-white/95 leading-relaxed max-w-xl">
-            At Legacy Retirement Living, we believe retirement should be peaceful, purposeful, and secure — a time to live fully, with dignity and independence.
+            Take a visual journey through our community, facilities, and the vibrant life at Legacy Retirement Living.
           </p>
         </motion.div>
       </div>

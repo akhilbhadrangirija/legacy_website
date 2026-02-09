@@ -16,7 +16,7 @@ export default function CommunityLifestyle() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/amenities/gathering.jpg"
+              src="/images/gallery/gallery-38.png"
               alt="Life at Legacy — community and connection"
               className="w-full h-full object-cover"
             />

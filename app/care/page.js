@@ -1,17 +1,16 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { MainLayout } from "../../components/MainLayout";
 import Link from "next/link";
 
 export default function CarePage() {
   return (
-    <main className="min-h-screen">
-      <Header />
-      <section className="bg-light-cream py-16 px-6">
+    <main className="min-h-screen bg-surface">
+      <MainLayout>
+      <section className="bg-surface py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <Link href="/" className="text-light-pink hover:underline mb-6 inline-block">
+          <Link href="/" className="text-accent hover:text-accent/80 mb-6 inline-block">
             ← Back to Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-semibold text-dark-brown mb-8">
+          <h1 className="text-4xl md:text-5xl font-semibold text-charcoal mb-8">
             All the freedom you crave with all there is to care
           </h1>
           
@@ -24,27 +23,27 @@ export default function CarePage() {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <ul className="space-y-6 text-dark-brown/70 text-lg">
+            <ul className="space-y-6 text-warm-gray text-lg">
               <li className="flex items-start gap-4">
-                <span className="text-light-pink font-bold text-2xl mt-1">w</span>
+                <span className="text-accent font-bold text-2xl mt-1">w</span>
                 <span>Feel at home with happiness and freedom at Legacy. The kind of freedom you enjoyed with your family at your own home in your robust years. The gardening, nurturing some fruit trees, tending to the flower beds or lazy walks in the backyard. It's your choice, as you wish and as the health may permit.</span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-light-pink font-bold text-2xl mt-1">w</span>
+                <span className="text-accent font-bold text-2xl mt-1">w</span>
                 <span>Round the clock nursing assistance with a nursing bay on each floor. Weekly visit and consultation with doctors, an ambulance ready any time. We have a tie-up with nearby Kolencherry Medical Mission Multi-speciality Hospital, which is only 10 minutes off.</span>
               </li>
             </ul>
 
             <div className="mt-12 grid md:grid-cols-2 gap-6">
-              <div className="bg-beige rounded-2xl p-6">
-                <h3 className="text-xl font-semibold text-dark-brown mb-4">24/7 Nursing Care</h3>
-                <p className="text-dark-brown/70">
+              <div className="bg-surface-warm rounded-card-lg p-6 shadow-card border border-charcoal/5">
+                <h3 className="text-xl font-semibold text-charcoal mb-4">24/7 Nursing Care</h3>
+                <p className="text-warm-gray">
                   Each floor has a nursing bay, and doctors visit weekly. An ambulance is available at any time.
                 </p>
               </div>
-              <div className="bg-beige rounded-2xl p-6">
-                <h3 className="text-xl font-semibold text-dark-brown mb-4">Medical Partnership</h3>
-                <p className="text-dark-brown/70">
+              <div className="bg-surface-warm rounded-card-lg p-6 shadow-card border border-charcoal/5">
+                <h3 className="text-xl font-semibold text-charcoal mb-4">Medical Partnership</h3>
+                <p className="text-warm-gray">
                   Legacy has partnered with Kolencherry Medical Mission Multi-Speciality Hospital, located just ten minutes away, to ensure prompt and professional medical care.
                 </p>
               </div>
@@ -52,7 +51,7 @@ export default function CarePage() {
           </div>
         </div>
       </section>
-      <Footer />
+      </MainLayout>
     </main>
   );
 }

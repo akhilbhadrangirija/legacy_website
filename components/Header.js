@@ -15,6 +15,7 @@ import { PrimaryButton } from './PrimaryButton'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/gallery', label: 'Gallery' },
   // { href: '/#living-options', label: 'Living Options' },
   // { href: '/#amenities', label: 'Amenities' },
   { href: '/contact-us', label: 'Contact' },

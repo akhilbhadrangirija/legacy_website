@@ -16,7 +16,7 @@ export default function WhoWeAre() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/building1.jpg"
+              src="/images/gallery/gallery-8.png"
               alt="Legacy residential environment"
               className="w-full h-full object-cover"
             />

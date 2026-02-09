@@ -16,7 +16,7 @@ export default function LocationEnvironment() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/arial_view.jpg"
+              src="/images/gallery/gallery-6.png"
               alt="Legacy location — Vadavucode, calm green surroundings"
               className="w-full h-full object-cover"
             />
