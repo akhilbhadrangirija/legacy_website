@@ -14,7 +14,7 @@ export default function Home() {
       <MainLayout>
         <HeroSection />
         <AboutSnapshot />
-        <SectionSeparator text="LIVING OPTIONS • SENIOR LIVING" />
+        {/* <SectionSeparator text="LIVING OPTIONS • SENIOR LIVING" /> */}
         <LivingOptions />
         <CommunityHighlight />
         <AmenitiesGrid />
