@@ -3,39 +3,39 @@
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '../SectionWrapper'
 
-export default function LocationEnvironment() {
+export default function CommunityLifestyle() {
   return (
-    <section className="py-section bg-surface">
+    <section className="py-section bg-surface-warm">
       <SectionWrapper>
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
-            className="relative aspect-[4/3] rounded-card-lg overflow-hidden shadow-card order-2 md:order-1"
+            className="relative aspect-[16/10] lg:aspect-[4/3] rounded-card-lg overflow-hidden shadow-card order-2 lg:order-1"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/arial_view.jpg"
-              alt="Legacy location — Vadavucode, calm green surroundings"
+              src="/amenities/gathering.jpg"
+              alt="Life at Legacy — community and connection"
               className="w-full h-full object-cover"
             />
           </motion.div>
           <motion.div
-            className="order-1 md:order-2"
+            className="order-1 lg:order-2"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl font-bold text-charcoal leading-tight sm:text-4xl">
-              A Location That Inspires Peace
+              Life at Legacy
             </h2>
             <p className="mt-6 text-warm-gray text-[1.0625rem] leading-relaxed">
-              Located in Vadavucode near Puthencruz, Legacy Retirement Living is set amidst calm, green surroundings away from urban chaos yet well connected to essential services.
+              Life at Legacy goes beyond comfortable living. Residents enjoy opportunities to socialize, engage in cultural activities, pursue hobbies, and build lasting friendships.
             </p>
             <p className="mt-5 text-warm-gray text-[1.0625rem] leading-relaxed">
-              The environment is carefully chosen to promote mental well-being, physical comfort, and a relaxed pace of life.
+              Our community is designed to feel warm, welcoming, and alive — a place where every individual belongs.
             </p>
           </motion.div>
         </div>

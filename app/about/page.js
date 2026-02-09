@@ -1,9 +1,12 @@
 import { MainLayout } from '../../components/MainLayout'
 import PageHero from '../../components/about/PageHero'
+import WhoWeAre from '../../components/about/WhoWeAre'
 import VisionMission from '../../components/about/VisionMission'
 import WhyLegacy from '../../components/about/WhyLegacy'
-import LocationEnvironment from '../../components/about/LocationEnvironment'
 import CarePhilosophy from '../../components/about/CarePhilosophy'
+import LocationEnvironment from '../../components/about/LocationEnvironment'
+import CommunityLifestyle from '../../components/about/CommunityLifestyle'
+import TrustAssurance from '../../components/about/TrustAssurance'
 import AboutCTA from '../../components/about/AboutCTA'
 
 export const metadata = {
@@ -14,13 +17,16 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-surface">
       <MainLayout>
         <PageHero />
+        <WhoWeAre />
         <VisionMission />
         <WhyLegacy />
-        <LocationEnvironment />
         <CarePhilosophy />
+        <LocationEnvironment />
+        <CommunityLifestyle />
+        <TrustAssurance />
         <AboutCTA />
       </MainLayout>
     </main>

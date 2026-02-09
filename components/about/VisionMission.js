@@ -2,46 +2,52 @@
 
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '../SectionWrapper'
-import { Eye, Target } from 'lucide-react'
+import { Eye, Target, Heart } from 'lucide-react'
+
+const cards = [
+  {
+    icon: Eye,
+    title: 'Vision',
+    text: 'To redefine retirement living by creating communities that nurture independence, wellness, and meaningful human connection.',
+  },
+  {
+    icon: Target,
+    title: 'Mission',
+    text: 'To provide a secure, senior-centric living environment that combines comfort, professional care, and a strong sense of belonging.',
+  },
+  {
+    icon: Heart,
+    title: 'Values',
+    text: 'Dignity, Compassion, Trust, and Community',
+  },
+]
 
 export default function VisionMission() {
   return (
-    <section className="py-section bg-charcoal text-white">
+    <section className="py-section bg-surface-warm">
       <SectionWrapper>
-        <h2 className="text-3xl font-semibold text-center sm:text-4xl mb-12">
-          Vision & Mission
+        <h2 className="text-3xl font-bold text-charcoal text-center sm:text-4xl mb-12">
+          Our Vision & Mission
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <motion.div
-            className="rounded-card-lg bg-white/10 backdrop-blur-sm p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="mb-6 inline-flex rounded-full bg-accent/20 p-3 text-accent">
-              <Eye className="h-8 w-8" />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-4">Our Vision</h3>
-            <p className="text-white/85 leading-relaxed">
-              To be the epitome of retirement living, providing a self-sustaining community that offers luxurious accommodation and lifestyle amenities for a contended living experience for senior citizens.
-            </p>
-          </motion.div>
-          <motion.div
-            className="rounded-card-lg bg-white/10 backdrop-blur-sm p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <div className="mb-6 inline-flex rounded-full bg-accent/20 p-3 text-accent">
-              <Target className="h-8 w-8" />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-4">Our Mission</h3>
-            <p className="text-white/85 leading-relaxed">
-              To create a humanitarian, self-sustaining community that prioritizes the well-being and happiness of our residents over profit, ensuring value for money while providing exceptional care and comfort.
-            </p>
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {cards.map(({ icon: Icon, title, text }, i) => (
+            <motion.div
+              key={title}
+              className="rounded-card-lg bg-surface p-8 shadow-card text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <div className="mb-6 inline-flex rounded-full bg-accent/15 p-4 text-accent">
+                <Icon className="h-8 w-8" />
+              </div>
+              <h3 className="text-xl font-bold text-charcoal mb-4">{title}</h3>
+              <p className="text-warm-gray leading-relaxed text-[1.0625rem]">
+                {text}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
     </section>

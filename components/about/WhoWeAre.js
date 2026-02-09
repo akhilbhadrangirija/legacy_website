@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '../SectionWrapper'
 
-export default function LocationEnvironment() {
+export default function WhoWeAre() {
   return (
     <section className="py-section bg-surface">
       <SectionWrapper>
@@ -16,8 +16,8 @@ export default function LocationEnvironment() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="/arial_view.jpg"
-              alt="Legacy location — Vadavucode, calm green surroundings"
+              src="/building1.jpg"
+              alt="Legacy residential environment"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -29,13 +29,13 @@ export default function LocationEnvironment() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl font-bold text-charcoal leading-tight sm:text-4xl">
-              A Location That Inspires Peace
+              Who We Are
             </h2>
             <p className="mt-6 text-warm-gray text-[1.0625rem] leading-relaxed">
-              Located in Vadavucode near Puthencruz, Legacy Retirement Living is set amidst calm, green surroundings away from urban chaos yet well connected to essential services.
+              Legacy Retirement Living is a thoughtfully planned senior living community designed to support a fulfilling and independent lifestyle for retirees.
             </p>
             <p className="mt-5 text-warm-gray text-[1.0625rem] leading-relaxed">
-              The environment is carefully chosen to promote mental well-being, physical comfort, and a relaxed pace of life.
+              Rooted in the values of care, respect, and community, we provide a safe and nurturing environment where seniors can enjoy their golden years with confidence and peace of mind.
             </p>
           </motion.div>
         </div>

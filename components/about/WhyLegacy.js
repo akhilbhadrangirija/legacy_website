@@ -2,57 +2,72 @@
 
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '../SectionWrapper'
+import {
+  Building2,
+  TreePine,
+  HeartPulse,
+  Shield,
+  Users,
+  HandHeart,
+} from 'lucide-react'
 
-const values = [
+const points = [
   {
-    title: 'Tranquil location',
-    description: 'Nestled in a peaceful village atmosphere at Vadavucode, near Puthencruz, offering the perfect blend of serenity and accessibility.',
+    icon: Building2,
+    title: 'Senior-friendly architectural design',
   },
   {
-    title: 'Spacious design',
-    description: 'Only 25% of the 5.5-acre property is built upon, with the rest dedicated to lush greenery and outdoor amenities.',
+    icon: TreePine,
+    title: 'Peaceful, green surroundings',
   },
   {
-    title: 'Senior-friendly architecture',
-    description: 'Thoughtfully designed apartments with accessibility and comfort as top priorities.',
+    icon: HeartPulse,
+    title: 'Professional healthcare and wellness support',
   },
   {
-    title: 'Value and clarity',
-    description: 'Own an apartment with undivided share in common areas for a minimum lease period of 10 years, with renewal options.',
+    icon: Shield,
+    title: 'Safe, secure, and accessible living spaces',
+  },
+  {
+    icon: Users,
+    title: 'A warm, community-driven environment',
+  },
+  {
+    icon: HandHeart,
+    title: 'Focus on independence with support always nearby',
   },
 ]
 
 export default function WhyLegacy() {
   return (
-    <section className="py-section bg-surface-warm">
+    <section className="py-section bg-surface">
       <SectionWrapper>
         <motion.h2
-          className="text-3xl font-semibold text-charcoal sm:text-4xl mb-10"
+          className="text-3xl font-bold text-charcoal sm:text-4xl mb-12"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5 }}
         >
-          Why Legacy
+          Why Choose Legacy
         </motion.h2>
-        <ul className="space-y-6 max-w-prose">
-          {values.map((item, i) => (
-            <motion.li
-              key={item.title}
-              className="flex gap-4"
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {points.map(({ icon: Icon, title }, i) => (
+            <motion.div
+              key={title}
+              className="rounded-card-lg bg-surface p-6 shadow-card border border-charcoal/5 flex gap-4 items-start"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              transition={{ duration: 0.4, delay: i * 0.04 }}
             >
-              <span className="text-accent font-semibold mt-1 shrink-0">•</span>
-              <div>
-                <h3 className="text-lg font-semibold text-charcoal">{item.title}</h3>
-                <p className="text-warm-gray leading-relaxed mt-1">{item.description}</p>
-              </div>
-            </motion.li>
+              <span className="text-accent shrink-0 mt-0.5">
+                <Icon className="h-6 w-6" />
+              </span>
+              <p className="text-charcoal font-medium leading-relaxed">{title}</p>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </SectionWrapper>
     </section>
   )
