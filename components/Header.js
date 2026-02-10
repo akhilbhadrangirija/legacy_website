@@ -66,9 +66,6 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <PrimaryButton href="/contact-us" className="!bg-white !text-navy !py-2.5 !px-4 !text-sm !border-0">
-            Schedule a Visit
-          </PrimaryButton>
           <Sheet>
             <SheetTrigger
               aria-label="Open menu"

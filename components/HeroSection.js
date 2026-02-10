@@ -151,6 +151,28 @@ export default function HeroSection() {
               <Plus className="h-8 w-8" strokeWidth={2} />
             </motion.div>
 
+            {/* Extra floating accents */}
+            <motion.div
+              className="absolute -left-6 top-8 w-16 h-16 rounded-full bg-accent/15 blur-md hidden lg:block"
+              aria-hidden
+              variants={pulseVariants}
+              animate="animate"
+            />
+            <motion.div
+              className="absolute -left-2 bottom-8 text-accent hidden lg:block"
+              aria-hidden
+              variants={floatingVariants}
+              animate="animate"
+            >
+              <Plus className="h-6 w-6 rotate-12" strokeWidth={2} />
+            </motion.div>
+            <motion.div
+              className="absolute right-20 -bottom-6 w-10 h-10 rounded-2xl border border-coral/40 bg-white/70 backdrop-blur-sm hidden lg:block"
+              aria-hidden
+              variants={floatingVariants}
+              animate="animate"
+            />
+
             {/* Image containers with hover effects */}
             <div className="relative w-full max-w-sm space-y-4">
               <motion.div
@@ -173,7 +195,7 @@ export default function HeroSection() {
                 />
               </motion.div>
               <motion.div
-                className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-card-hover ml-8 cursor-pointer"
+                className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-card-hover md:ml-8 cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
