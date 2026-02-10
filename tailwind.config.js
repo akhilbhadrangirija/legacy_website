@@ -13,17 +13,20 @@ module.exports = {
         'dark-brown': '#3D2817',
         'light-pink': '#F4D1C6',
         'light-cream': '#FAF8F5',
-        /* Felycity-style: dark blue, vibrant green, coral */
         surface: '#FFFFFF',
         'surface-warm': '#F5F5F5',
-        charcoal: '#1E3A5F',
-        navy: '#1E3A5F',
-        'navy-light': '#2A4A6F',
+        // Legacy Retirement Living primary palette
+        // Dark:   #061E29
+        // Medium: #1D546D
+        // Light:  #5F9598
+        charcoal: '#061E29',
+        navy: '#061E29',
+        'navy-light': '#1D546D',
         'warm-gray': '#6B7280',
-        accent: '#22C55E',
-        'accent-green': '#22C55E',
-        coral: '#F4A896',
-        'coral-light': '#FAD4CC',
+        accent: '#1D546D',
+        'accent-green': '#1D546D',
+        coral: '#5F9598',
+        'coral-light': '#5F9598',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

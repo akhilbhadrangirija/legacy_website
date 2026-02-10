@@ -60,13 +60,13 @@ export default function Header() {
               {label}
             </Link>
           ))}
-          <PrimaryButton href="/contact-us" className="!bg-accent !text-white hover:!bg-accent/90 !border-0">
+          <PrimaryButton href="/contact-us" className="!bg-white !text-navy hover:!bg-white/90 !border-0">
             Schedule a Visit
           </PrimaryButton>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <PrimaryButton href="/contact-us" className="!bg-accent !text-white !py-2.5 !px-4 !text-sm !border-0">
+          <PrimaryButton href="/contact-us" className="!bg-white !text-navy !py-2.5 !px-4 !text-sm !border-0">
             Schedule a Visit
           </PrimaryButton>
           <Sheet>
@@ -90,7 +90,7 @@ export default function Header() {
                 ))}
                 <div className="mt-4 border-t border-white/15 pt-4">
                   <SheetClose asChild>
-                    <PrimaryButton href="/contact-us" className="w-full justify-center !bg-accent !text-white !border-0">
+                    <PrimaryButton href="/contact-us" className="w-full justify-center !bg-white !text-navy !border-0">
                       Schedule a Visit
                     </PrimaryButton>
                   </SheetClose>

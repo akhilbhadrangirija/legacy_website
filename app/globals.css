@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: #1E3A5F;
+  color: #061E29;
   background-color: #FFFFFF;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -28,7 +28,7 @@ body {
 /* Focus states for accessibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #22C55E;
+  outline: 2px solid #1D546D;
   outline-offset: 2px;
 }
 
